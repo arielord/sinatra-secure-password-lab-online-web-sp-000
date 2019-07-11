@@ -18,9 +18,9 @@ class ApplicationController < Sinatra::Base
 
   post "/signup" do
     #your code here
-    user = User.new(username: params[:username], password: params[:password])
+    user = User.new(:username => params[:username], :password => params[:password])
     
-    if !!user.save
+    if user.save
       session[:user_id] = user.id
       redirect "/login"
     else
