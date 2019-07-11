@@ -18,6 +18,7 @@ class ApplicationController < Sinatra::Base
 
   post "/signup" do
     #your code here
+    if params[:username].empty?
     user = User.new(:username => params[:username], :password => params[:password])
     
     if user.save
